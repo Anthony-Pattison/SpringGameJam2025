@@ -33,6 +33,7 @@ public class PlayerBoatScript : MonoBehaviour
         {
             playerpos.y -= 1.225f;
         }
+
         OutofBounds();
         transform.position = playerpos;
     }
