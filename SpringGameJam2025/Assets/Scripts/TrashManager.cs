@@ -14,13 +14,26 @@ public class TrashManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
 
+        for (int i = 0; i < 8; i++)
+        {
+            Debug.Log(i);
+            col1[i] = null;
+        }
+        for (int i = 0; i < 8; i++)
+        {
+            col2[i] = null;
+        }
+        for (int i = 0; i < 8; i++)
+        {
+            col3[i] = null;
+        }
         for (int i = 0; i < 8; i++)
         {
             col4[i] = null;
         }
 
-        col1 = col2 = col3 = col4;
         ListofColumns.Add(col1); ListofColumns.Add(col2); ListofColumns.Add(col3); ListofColumns.Add(col4);
     }
 
@@ -30,7 +43,8 @@ public class TrashManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            col4[4] = gamejj;
+            Debug.Log(ListofColumns);
+            ListofColumns[1].Add(gamejj);
         }
     }
 }
