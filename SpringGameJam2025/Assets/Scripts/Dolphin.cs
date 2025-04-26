@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Dolphin : MonoBehaviour
 {
+    public GameObject listHandler;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,16 @@ public class Dolphin : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public IEnumerator findTrash()
+    {
+        int destroyedCount = 0;
+        while(destroyedCount < 4)
+        {
+
+        }
+
+        yield return null;
     }
 }
