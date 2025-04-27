@@ -12,14 +12,15 @@ public class TrashPrefabScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TrashPos.y = 4.335f;
-        transform.position = TrashPos;
+        TrashPos.y = 4.335f; // starts at the top of the screen
+        transform.position = TrashPos; // gives movement
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector2 temppos = transform.position;
+
         if (temppos.y <= stopPos)
         {
             move = false;
@@ -27,7 +28,7 @@ public class TrashPrefabScript : MonoBehaviour
         }
         else
         {
-            StartCoroutine(movement());
+            StartCoroutine(movement()); // runs movement
         }
     }
 
@@ -35,9 +36,9 @@ public class TrashPrefabScript : MonoBehaviour
     {
         while (move)
         {
-            TrashPos.y -= speed * Time.deltaTime;
-            TrashPos.x = xpos;
-            transform.position = TrashPos;
+            TrashPos.y -= speed * Time.deltaTime; // moves the trash down
+            TrashPos.x = xpos; // puts the trash in a column based on the spawner
+            transform.position = TrashPos; // gives movement
             yield return null;
         }
     }

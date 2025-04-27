@@ -39,7 +39,7 @@ public class PlayerBoatScript : MonoBehaviour
             playerpos.y -= 1.225f;
         }
 
-        OutofBounds();
+        OutofBounds(); // keeps the player on the screen
         transform.position = playerpos;
     }
 
