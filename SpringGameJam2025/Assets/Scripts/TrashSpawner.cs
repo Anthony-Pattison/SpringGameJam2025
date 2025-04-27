@@ -102,7 +102,14 @@ public class TrashSpawner : MonoBehaviour
                 TrashinColumn.Remove(TrashinColumn[i]);
             }
         }
+
+        if (TrashinColumn.Count > 7)
+        {
+            player.GetComponent<PlayerBoatScript>().isAlive = false;
+        }
     }
+
+
     private void spawnPrefab(int k)
     {
         GameObject Trash = Instantiate(trashitemPrefab, transform.position, transform.rotation); //spawn trash
