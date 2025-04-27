@@ -607,6 +607,7 @@ MonoBehaviour:
   TrashPrefab: {fileID: 1903634730374168921, guid: 12d4054cbb6ff1b48b0e1fc6c6cceed1, type: 3}
   DolphinPrefab: {fileID: 4086728807808214971, guid: c7abaf260ea592c40a2a1b6b6b553f77, type: 3}
   player: {fileID: 388538747}
+  TrashManager: {fileID: 87847433}
   EndPos: 0
 --- !u!4 &1111582376
 Transform:
@@ -1077,6 +1078,7 @@ MonoBehaviour:
   TrashPrefab: {fileID: 1903634730374168921, guid: 12d4054cbb6ff1b48b0e1fc6c6cceed1, type: 3}
   DolphinPrefab: {fileID: 4086728807808214971, guid: c7abaf260ea592c40a2a1b6b6b553f77, type: 3}
   player: {fileID: 388538747}
+  TrashManager: {fileID: 87847433}
   EndPos: 0
 --- !u!4 &1813794533
 Transform:
@@ -1379,6 +1381,7 @@ MonoBehaviour:
   TrashPrefab: {fileID: 1903634730374168921, guid: 12d4054cbb6ff1b48b0e1fc6c6cceed1, type: 3}
   DolphinPrefab: {fileID: 4086728807808214971, guid: c7abaf260ea592c40a2a1b6b6b553f77, type: 3}
   player: {fileID: 388538747}
+  TrashManager: {fileID: 87847433}
   EndPos: 0
 --- !u!4 &2117368841
 Transform:
@@ -1513,6 +1516,7 @@ MonoBehaviour:
   TrashPrefab: {fileID: 1903634730374168921, guid: 12d4054cbb6ff1b48b0e1fc6c6cceed1, type: 3}
   DolphinPrefab: {fileID: 4086728807808214971, guid: c7abaf260ea592c40a2a1b6b6b553f77, type: 3}
   player: {fileID: 388538747}
+  TrashManager: {fileID: 87847433}
   EndPos: 0
 --- !u!4 &2144380654
 Transform:
