@@ -27,8 +27,6 @@ public class TrashManager : MonoBehaviour
         GlobalScale += 0.0001f *Time.deltaTime;
         speed += GlobalScale*Time.deltaTime;
         speed = Mathf.Clamp(speed, 0, 1.5f);
-        spawnRate -= GlobalScale *Time.deltaTime;
-        spawnRate = Mathf.Clamp(spawnRate, 0.5f, 1);
     }
 
     public int checkNumberOfItems()

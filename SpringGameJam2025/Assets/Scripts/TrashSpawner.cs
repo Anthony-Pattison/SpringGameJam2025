@@ -42,21 +42,16 @@ public class TrashSpawner : MonoBehaviour
                 print("Spawning Trash");
 
             }
-            else if (chance < 85) //15% chance
+            else if (chance < 90) //15% chance
             {
                 spawnPrefab(4); //ice - freeze column from spawning for 3s
                 print("Spawning Iceberg");
             }
-            else if (chance < 95) //10% chance
+            else if (chance < 100) //10% chance
             {
                 spawnPrefab(5); //net - clear column
                 print("Spawning Net");
 
-            }
-            else if (TrashManager.checkNumberOfItems() > 3) //5% chance and only if more than 3 items, if less than 3 items then spawns trash
-            {
-                spawnPrefab(6); //dolphin - clear top 3 trash
-                print("Spawning Dolphin");
             }
             else
             {
