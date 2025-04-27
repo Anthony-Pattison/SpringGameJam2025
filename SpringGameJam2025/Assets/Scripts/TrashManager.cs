@@ -32,7 +32,7 @@ public class TrashManager : MonoBehaviour
        
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log(ListofColumns);
+            
             //ListofColumns[1][2] = TrashPrefab;
           
         }
