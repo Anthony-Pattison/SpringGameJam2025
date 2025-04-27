@@ -37,23 +37,29 @@ public class TrashSpawner : MonoBehaviour
             if (chance < 70) //70% chance
             {
                 spawnPrefab(0); //trash
+                print("Spawning Trash");
 
             }
             else if (chance < 85) //15% chance
             {
                 spawnPrefab(1); //ice - freeze column from spawning for 3s
+                print("Spawning Iceberg");
             }
             else if (chance < 95) //10% chance
             {
                 spawnPrefab(2); //net - clear column
+                print("Spawning Net");
+
             }
             else if (TrashManager.checkNumberOfItems() > 3) //5% chance and only if more than 3 items, if less than 3 items then spawns trash
             {
                 spawnPrefab(4); //dolphin - clear top 3 trash
+                print("Spawning Dolphin");
             }
             else
             {
                 spawnPrefab(0); //spawn trash
+                print("Spawning Trash cuz no dolphin");
             }
 
 
@@ -90,14 +96,14 @@ public class TrashSpawner : MonoBehaviour
             }
         }
     }
-    private void spawnPrefab(int i)
+    private void spawnPrefab(int k)
     {
         GameObject Trash = Instantiate(prefabList[0], transform.position, transform.rotation); //spawn trash
         Vector2 TrashPos = Trash.transform.position;
         EndPos = -4.24f + (1.225f * TrashinColumn.Count); // gives the prefab a place to stop based on the amount of items in the list
         TrashinColumn.Add(Trash);
         TrashPrefabScript TrashScript = Trash.GetComponent<TrashPrefabScript>();
-        TrashScript.itemID = i;
+        TrashScript.itemID = k;
         TrashScript.trashManager = TrashManager;
         TrashScript.EndPos = EndPos;
         TrashScript.spawner = gameObject.GetComponent<TrashSpawner>();

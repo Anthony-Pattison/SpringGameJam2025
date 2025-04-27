@@ -8,7 +8,8 @@ public class TrashManager : MonoBehaviour
 {
     public GameObject TrashPrefab;
     public List<TrashSpawner> TrashSpawnerList = new List<TrashSpawner>();
-    public float speed=0.2f;
+    public float speed=0.005f;
+    public float GlobalScale = 0.0001f;
     public float spawnRate =2;
     public int score=0;
     public int numberOfItems;
@@ -23,7 +24,9 @@ public class TrashManager : MonoBehaviour
     void Update()
     {
         scoreTextBox.text = score.ToString();
-        speed += 0.001f;
+        GlobalScale += 0.0001f *Time.deltaTime;
+        speed += GlobalScale*Time.deltaTime;
+        spawnRate -= GlobalScale *Time.deltaTime;
     }
 
     public int checkNumberOfItems()

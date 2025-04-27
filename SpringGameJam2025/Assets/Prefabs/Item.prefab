@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3515790063502561202}
   - component: {fileID: 4334294867814164958}
   m_Layer: 0
-  m_Name: Dolphin
+  m_Name: Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,13 +97,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c51fd84a586824f89255717307a754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sr: {fileID: 0}
   spriteList:
   - {fileID: 21300000, guid: 4082f4b410a018b4d868caa4c27bc027, type: 3}
   - {fileID: 21300000, guid: e4a172794fb23484695d2ae8030d873d, type: 3}
-  speed: 0.01
-  xpos: 0
-  isItem: 1
-  killitem: 0
-  stopPos: 0
-  move: 1
-  sr: {fileID: 0}
+  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  trashManager: {fileID: 0}
+  spawner: {fileID: 0}
+  EndPos: 0
+  itemID: 0

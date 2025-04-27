@@ -11,12 +11,12 @@ public class TrashPrefabScript : MonoBehaviour
     public Coroutine movingCR;
     Vector2 TrashPos;
     public float EndPos;
-    public float itemID;
+    public int itemID;
     // Start is called before the first frame update
     void Start()
     {
         sr = gameObject.GetComponent<SpriteRenderer>();
-        sr.sprite = spriteList[(int)Random.Range(0, 3)];
+        sr.sprite = spriteList[itemID];
         TrashPos.y = transform.position.y;
         TrashPos.x = transform.position.x; // puts the trash in a column based on the spawner
         gameObject.transform.Rotate(0.0f, 0.0f, Random.Range(-90, 90), Space.Self);
@@ -34,7 +34,7 @@ public class TrashPrefabScript : MonoBehaviour
     {
         while (transform.position.y > EndPos)
         {
-            TrashPos.y -= trashManager.speed * Time.deltaTime; // moves the trash down
+            TrashPos.y -= trashManager.speed; // moves the trash down
             transform.position = TrashPos; // gives movement
             EndPos = spawner.checkLowestPoint();
             yield return null;
