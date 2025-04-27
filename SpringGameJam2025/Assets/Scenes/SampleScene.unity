@@ -602,6 +602,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TrashinColumn: []
+  speed: 1
+  xpos: -3.99
+  TrashPrefab: {fileID: 1903634730374168921, guid: 12d4054cbb6ff1b48b0e1fc6c6cceed1, type: 3}
+  player: {fileID: 388538747}
 --- !u!4 &1111582376
 Transform:
   m_ObjectHideFlags: 0
@@ -1067,6 +1071,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TrashinColumn: []
+  speed: 1
+  xpos: 0.01
+  TrashPrefab: {fileID: 1903634730374168921, guid: 12d4054cbb6ff1b48b0e1fc6c6cceed1, type: 3}
+  player: {fileID: 388538747}
 --- !u!4 &1813794533
 Transform:
   m_ObjectHideFlags: 0
@@ -1364,6 +1372,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TrashinColumn: []
+  speed: 1
+  xpos: -1.99
+  TrashPrefab: {fileID: 1903634730374168921, guid: 12d4054cbb6ff1b48b0e1fc6c6cceed1, type: 3}
+  player: {fileID: 388538747}
 --- !u!4 &2117368841
 Transform:
   m_ObjectHideFlags: 0
@@ -1493,6 +1505,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TrashinColumn: []
+  speed: 1
+  xpos: 2.01
+  TrashPrefab: {fileID: 1903634730374168921, guid: 12d4054cbb6ff1b48b0e1fc6c6cceed1, type: 3}
+  player: {fileID: 388538747}
 --- !u!4 &2144380654
 Transform:
   m_ObjectHideFlags: 0

@@ -33,37 +33,10 @@ public class TrashManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log(ListofColumns);
-            ListofColumns[1][2] = TrashPrefab;
-            StartCoroutine(spawnTrash());
+            //ListofColumns[1][2] = TrashPrefab;
+          
         }
 
     }
-    IEnumerator spawnTrash()
-    {
-
-        GameObject Trash = Instantiate(TrashPrefab);
-        Vector2 TrashPos = Trash.transform.position;
-
-        TrashPos = new Vector3(-3.99f, 4.335f, 0);
-
-
-
-        Trash.transform.position = TrashPos;
-
-
-        while (move)
-        {
-            TrashPos.y -= speed * Time.deltaTime;
-            Trash.transform.position = TrashPos;
-
-            if (TrashPos.y % 1.225f == 1)
-            {
-                Debug.Log("working");
-            }
-            yield return null;
-        }
-        yield return null;
-
-
-    }
+    
 }
