@@ -15,6 +15,8 @@ public class TrashSpawner : MonoBehaviour
     public GameObject icePrefab;
     public GameObject player;
     public TrashManager TrashManager;
+    public GameObject Endscreen;
+    public GameObject ResetCondition;
     public float EndPos;
     private float t;
     public int chance;
@@ -34,30 +36,8 @@ public class TrashSpawner : MonoBehaviour
         if (t > TrashManager.spawnRate)
         {
             t = Random.Range(-1, 1);
+            spawnPrefab((int)Random.Range(0, 3)); //trash
 
-            chance = (int)Random.Range(0, 100);
-            if (chance < 70) //70% chance
-            {
-                spawnPrefab((int)Random.Range(0, 3)); //trash
-                print("Spawning Trash");
-
-            }
-            else if (chance < 90) //15% chance
-            {
-                spawnPrefab(4); //ice - freeze column from spawning for 3s
-                print("Spawning Iceberg");
-            }
-            else if (chance < 100) //10% chance
-            {
-                spawnPrefab(5); //net - clear column
-                print("Spawning Net");
-
-            }
-            else
-            {
-                spawnPrefab((int)Random.Range(0, 3)); //spawn trash
-                print("Spawning Trash cuz no dolphin");
-            }
 
 
 
@@ -101,6 +81,8 @@ public class TrashSpawner : MonoBehaviour
         if (TrashinColumn.Count > 7)
         {
             player.GetComponent<PlayerBoatScript>().isAlive = false;
+            Endscreen.SetActive(true);
+            ResetCondition.SetActive(true);
         }
     }
 
@@ -150,7 +132,7 @@ public class TrashSpawner : MonoBehaviour
     {
         if (icedLaneCoroutine != null)
         {
-           StopCoroutine(icedLaneCoroutine);
+            StopCoroutine(icedLaneCoroutine);
             icedLaneCoroutine = null;
 
         }
@@ -186,7 +168,7 @@ public class TrashSpawner : MonoBehaviour
     {
         while (true)
         {
-            print(t);
+            //print(t);
             t += Time.deltaTime * 0.5f;
             yield return null;
         }

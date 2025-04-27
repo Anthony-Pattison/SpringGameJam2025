@@ -12,6 +12,7 @@ public class TrashPrefabScript : MonoBehaviour
     Vector2 TrashPos;
     public float EndPos;
     public int itemID;
+    public bool isStopped = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,11 +33,23 @@ public class TrashPrefabScript : MonoBehaviour
 
     public IEnumerator movement()
     {
-        while (transform.position.y > EndPos)
+        while (true)
         {
-            TrashPos.y -= trashManager.speed; // moves the trash down
-            transform.position = TrashPos; // gives movement
-            EndPos = spawner.checkLowestPoint();
+            foreach(GameObject s in spawner.TrashinColumn)
+            {
+                 
+                //if(!(transform.position.y == s.transform.position.y) && transform.position.y - s.transform.position.y < 1.225f)
+                if(s.transform.position.y > transform.position.y - 1.225f && s.GetComponent<TrashPrefabScript>().isStopped || transform.position.y < -4.225f)
+                {
+                    print("Cancelling movement CR");
+                    stopCoroutineFunction();
+                }
+
+            }
+
+            Debug.Log(trashManager.speed + spawner.transform.position.x);
+            TrashPos.y -= trashManager.speed;
+            transform.position = TrashPos;
             yield return null;
         }
         stopCoroutineFunction();
@@ -45,8 +58,10 @@ public class TrashPrefabScript : MonoBehaviour
 
     public void stopCoroutineFunction()
     {
+
         StopCoroutine(movingCR);
         movingCR = null;
+        isStopped = true;
     }
 
     public void activateAbility()
