@@ -48,4 +48,25 @@ public class TrashPrefabScript : MonoBehaviour
         StopCoroutine(movingCR);
         movingCR = null;
     }
+
+    public void activateAbility()
+    {
+        if (itemID == 4) //ice freezing column
+        {
+            print("Ice power activated");
+            spawner.startIceCR();
+        }
+
+        if (itemID == 5) //Net deleting everything
+        {
+            foreach (GameObject s in spawner.TrashinColumn)
+            {
+                Destroy(s);
+                spawner.TrashinColumn.Remove(spawner.TrashinColumn[0]);
+                print("List getting deleted: " + spawner.TrashinColumn.Count);
+            }
+        }
+
+
+    }
 }

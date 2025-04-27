@@ -151,14 +151,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4670621ae0ade44ea432e4f6cf3628d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrashPrefab: {fileID: 1903634730374168921, guid: 12d4054cbb6ff1b48b0e1fc6c6cceed1, type: 3}
+  TrashPrefab: {fileID: 0}
   TrashSpawnerList:
   - {fileID: 1111582375}
   - {fileID: 2117368840}
   - {fileID: 1813794532}
   - {fileID: 2144380653}
-  speed: 1
-  spawnRate: 2
+  speed: 0.005
+  GlobalScale: 0.0001
+  spawnRate: 3
   score: 0
   numberOfItems: 0
   scoreTextBox: {fileID: 207345639}
@@ -810,11 +811,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrashinColumn: []
   xpos: -3.99
-  prefabList:
-  - {fileID: 1903634730374168921, guid: 12d4054cbb6ff1b48b0e1fc6c6cceed1, type: 3}
-  - {fileID: 4086728807808214971, guid: c7abaf260ea592c40a2a1b6b6b553f77, type: 3}
-  - {fileID: 4086728807808214971, guid: c7abaf260ea592c40a2a1b6b6b553f77, type: 3}
-  - {fileID: 4086728807808214971, guid: c7abaf260ea592c40a2a1b6b6b553f77, type: 3}
+  trashitemPrefab: {fileID: 1903634730374168921, guid: 12d4054cbb6ff1b48b0e1fc6c6cceed1, type: 3}
+  icePrefab: {fileID: 363561798301711861, guid: 4b9b6f2df1e775c49ae1359b5591d802, type: 3}
   player: {fileID: 388538747}
   TrashManager: {fileID: 87847434}
   EndPos: 0
@@ -1303,11 +1301,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrashinColumn: []
   xpos: 0.01
-  prefabList:
-  - {fileID: 1903634730374168921, guid: 12d4054cbb6ff1b48b0e1fc6c6cceed1, type: 3}
-  - {fileID: 4086728807808214971, guid: c7abaf260ea592c40a2a1b6b6b553f77, type: 3}
-  - {fileID: 4086728807808214971, guid: c7abaf260ea592c40a2a1b6b6b553f77, type: 3}
-  - {fileID: 4086728807808214971, guid: c7abaf260ea592c40a2a1b6b6b553f77, type: 3}
+  trashitemPrefab: {fileID: 1903634730374168921, guid: 12d4054cbb6ff1b48b0e1fc6c6cceed1, type: 3}
+  icePrefab: {fileID: 363561798301711861, guid: 4b9b6f2df1e775c49ae1359b5591d802, type: 3}
   player: {fileID: 388538747}
   TrashManager: {fileID: 87847434}
   EndPos: 0
@@ -1610,11 +1605,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrashinColumn: []
   xpos: -1.99
-  prefabList:
-  - {fileID: 1903634730374168921, guid: 12d4054cbb6ff1b48b0e1fc6c6cceed1, type: 3}
-  - {fileID: 4086728807808214971, guid: c7abaf260ea592c40a2a1b6b6b553f77, type: 3}
-  - {fileID: 4086728807808214971, guid: c7abaf260ea592c40a2a1b6b6b553f77, type: 3}
-  - {fileID: 4086728807808214971, guid: c7abaf260ea592c40a2a1b6b6b553f77, type: 3}
+  trashitemPrefab: {fileID: 1903634730374168921, guid: 12d4054cbb6ff1b48b0e1fc6c6cceed1, type: 3}
+  icePrefab: {fileID: 363561798301711861, guid: 4b9b6f2df1e775c49ae1359b5591d802, type: 3}
   player: {fileID: 388538747}
   TrashManager: {fileID: 87847434}
   EndPos: 0
@@ -1749,11 +1741,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrashinColumn: []
   xpos: 2.01
-  prefabList:
-  - {fileID: 1903634730374168921, guid: 12d4054cbb6ff1b48b0e1fc6c6cceed1, type: 3}
-  - {fileID: 4086728807808214971, guid: c7abaf260ea592c40a2a1b6b6b553f77, type: 3}
-  - {fileID: 4086728807808214971, guid: c7abaf260ea592c40a2a1b6b6b553f77, type: 3}
-  - {fileID: 4086728807808214971, guid: c7abaf260ea592c40a2a1b6b6b553f77, type: 3}
+  trashitemPrefab: {fileID: 1903634730374168921, guid: 12d4054cbb6ff1b48b0e1fc6c6cceed1, type: 3}
+  icePrefab: {fileID: 363561798301711861, guid: 4b9b6f2df1e775c49ae1359b5591d802, type: 3}
   player: {fileID: 388538747}
   TrashManager: {fileID: 87847434}
   EndPos: 0

@@ -10,7 +10,7 @@ public class TrashManager : MonoBehaviour
     public List<TrashSpawner> TrashSpawnerList = new List<TrashSpawner>();
     public float speed=0.005f;
     public float GlobalScale = 0.0001f;
-    public float spawnRate =2;
+    public float spawnRate =3;
     public int score=0;
     public int numberOfItems;
     public TextMeshProUGUI scoreTextBox;
@@ -26,7 +26,9 @@ public class TrashManager : MonoBehaviour
         scoreTextBox.text = score.ToString();
         GlobalScale += 0.0001f *Time.deltaTime;
         speed += GlobalScale*Time.deltaTime;
+        speed = Mathf.Clamp(speed, 0, 1.5f);
         spawnRate -= GlobalScale *Time.deltaTime;
+        spawnRate = Mathf.Clamp(spawnRate, 0.5f, 1);
     }
 
     public int checkNumberOfItems()
@@ -42,5 +44,6 @@ public class TrashManager : MonoBehaviour
 
         return numberOfItems;
     }
+    
     
 }

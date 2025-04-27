@@ -8,10 +8,11 @@ using UnityEngine;
 public class TrashSpawner : MonoBehaviour
 {
     public List<GameObject> TrashinColumn = new List<GameObject>();
-
-
+    public Coroutine icedLaneCoroutine;
+    public Coroutine timerCR;
     public float xpos;
-    public List<GameObject> prefabList = new List<GameObject>();
+    public GameObject trashitemPrefab;
+    public GameObject icePrefab;
     public GameObject player;
     public TrashManager TrashManager;
     public float EndPos;
@@ -21,13 +22,14 @@ public class TrashSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         t = Random.Range(-1, 1); //random range so that all the spawners don't spawn at the same time and are instead staggered.
+        timerCR = StartCoroutine(timer());
     }
 
     //Update is called once per frame
     void Update()
     {
-        t += Time.deltaTime * 0.5f;
 
         if (t > TrashManager.spawnRate)
         {
@@ -36,29 +38,29 @@ public class TrashSpawner : MonoBehaviour
             chance = (int)Random.Range(0, 100);
             if (chance < 70) //70% chance
             {
-                spawnPrefab(0); //trash
+                spawnPrefab((int)Random.Range(0, 3)); //trash
                 print("Spawning Trash");
 
             }
             else if (chance < 85) //15% chance
             {
-                spawnPrefab(1); //ice - freeze column from spawning for 3s
+                spawnPrefab(4); //ice - freeze column from spawning for 3s
                 print("Spawning Iceberg");
             }
             else if (chance < 95) //10% chance
             {
-                spawnPrefab(2); //net - clear column
+                spawnPrefab(5); //net - clear column
                 print("Spawning Net");
 
             }
             else if (TrashManager.checkNumberOfItems() > 3) //5% chance and only if more than 3 items, if less than 3 items then spawns trash
             {
-                spawnPrefab(4); //dolphin - clear top 3 trash
+                spawnPrefab(6); //dolphin - clear top 3 trash
                 print("Spawning Dolphin");
             }
             else
             {
-                spawnPrefab(0); //spawn trash
+                spawnPrefab((int)Random.Range(0, 3)); //spawn trash
                 print("Spawning Trash cuz no dolphin");
             }
 
@@ -80,6 +82,10 @@ public class TrashSpawner : MonoBehaviour
                 Destroy(TrashinColumn[i]);
                 TrashinColumn.Remove(TrashinColumn[i]);
                 //----------------------------------------------------------------------ADD SCORE FUNCTION AND ACTIVATION-----------------------------------
+                if (trashScript.itemID > 3)
+                {
+                    trashScript.activateAbility();
+                }
                 TrashManager.score += 1;
                 break;
             }
@@ -89,8 +95,9 @@ public class TrashSpawner : MonoBehaviour
                 player.transform.position = player.GetComponent<PlayerBoatScript>().perplayerpos; // moves the player back to their pervious position
             }
 
-            else if (trashScript.itemID > 0 && trashScript.movingCR == null) //destroy item if reach bottom
+            else if (trashScript.itemID > 3 && trashScript.movingCR == null) //destroy item if reach bottom
             {
+                print("Item got destroyed");
                 Destroy(TrashinColumn[i]);
                 TrashinColumn.Remove(TrashinColumn[i]);
             }
@@ -98,7 +105,7 @@ public class TrashSpawner : MonoBehaviour
     }
     private void spawnPrefab(int k)
     {
-        GameObject Trash = Instantiate(prefabList[0], transform.position, transform.rotation); //spawn trash
+        GameObject Trash = Instantiate(trashitemPrefab, transform.position, transform.rotation); //spawn trash
         Vector2 TrashPos = Trash.transform.position;
         EndPos = -4.24f + (1.225f * TrashinColumn.Count); // gives the prefab a place to stop based on the amount of items in the list
         TrashinColumn.Add(Trash);
@@ -125,7 +132,61 @@ public class TrashSpawner : MonoBehaviour
 
     public float checkLowestPoint()
     {
-        float EndPos = -4.24f + (1.225f * (TrashinColumn.Count-1));
+        float EndPos = -4.24f + (1.225f * (TrashinColumn.Count - 1));
         return EndPos;
+    }
+
+    public void startIceCR()
+    {
+        if (icedLaneCoroutine == null)
+        {
+            icedLaneCoroutine = StartCoroutine(icingTheLane());
+        }
+    }
+
+    public void stopIceCR()
+    {
+        if (icedLaneCoroutine != null)
+        {
+           StopCoroutine(icedLaneCoroutine);
+            icedLaneCoroutine = null;
+
+        }
+    }
+
+    public void startTimer()
+    {
+        if (timerCR == null)
+        {
+            timerCR = StartCoroutine(timer());
+        }
+    }
+
+    public IEnumerator icingTheLane()
+    {
+        print("ICING THE LANE IN COLUMN: " + transform.position.x);
+        GameObject iceOverlay = Instantiate(icePrefab);
+        t = 0;
+        StopCoroutine(timerCR);
+        timerCR = null;
+        while (true)
+        {
+            yield return new WaitForSeconds(3);
+
+            startTimer();
+            Destroy(iceOverlay);
+            stopIceCR();
+        }
+
+    }
+
+    public IEnumerator timer()
+    {
+        while (true)
+        {
+            print(t);
+            t += Time.deltaTime * 0.5f;
+            yield return null;
+        }
     }
 }

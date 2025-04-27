@@ -97,14 +97,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c51fd84a586824f89255717307a754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sr: {fileID: 0}
   spriteList:
   - {fileID: 21300000, guid: 86167d24614c666479cdc636d9db28f1, type: 3}
   - {fileID: 21300000, guid: a967ce290451fbe4b892f608b448ffb1, type: 3}
   - {fileID: 21300000, guid: 4b625d2e38535e34c88988a6e73a00ee, type: 3}
-  speed: 1
-  xpos: 0
-  isItem: 0
-  stopPos: 0
-  move: 1
-  sr: {fileID: 0}
+  - {fileID: 21300000, guid: 4082f4b410a018b4d868caa4c27bc027, type: 3}
+  - {fileID: 21300000, guid: e4a172794fb23484695d2ae8030d873d, type: 3}
+  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  trashManager: {fileID: 0}
+  spawner: {fileID: 0}
+  EndPos: 0
   itemID: 0
