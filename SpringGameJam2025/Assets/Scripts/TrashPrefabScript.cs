@@ -6,6 +6,8 @@ public class TrashPrefabScript : MonoBehaviour
 {
     public float speed;
     public float xpos;
+    public bool isItem = false;
+    public bool killitem;
     Vector2 TrashPos;
     public float stopPos;
     public bool move = true;
@@ -25,6 +27,9 @@ public class TrashPrefabScript : MonoBehaviour
         {
             move = false;
 
+        }else if (temppos.y <= stopPos && isItem)
+        {
+            killitem = true;
         }
         else
         {
