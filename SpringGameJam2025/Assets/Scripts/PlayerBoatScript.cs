@@ -53,9 +53,9 @@ public class PlayerBoatScript : MonoBehaviour
             playerpos.y = -4.24f;
         }
 
-        if (playerpos.x > 4.01)
+        if (playerpos.x > 2.01)
         {
-            playerpos.x = 4.01f;
+            playerpos.x = 2.01f;
         }
         else if (playerpos.x < -4)
         {
