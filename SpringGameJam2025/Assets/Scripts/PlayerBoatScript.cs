@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerBoatScript : MonoBehaviour
 {
     Vector2 playerpos;
+    public Vector2 perplayerpos;
     public float speed;
     // Start is called before the first frame update
     void Start()
@@ -19,22 +20,26 @@ public class PlayerBoatScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))  // right movement
         {
+            perplayerpos = transform.position;
             playerpos.x += 2;
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) // left movement 
         {
+            perplayerpos = transform.position;
             playerpos.x -= 2;
         }
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) // up movement
         {
+            perplayerpos = transform.position;
             playerpos.y += 1.225f;
         }
         if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) // Down movement 
         {
+            perplayerpos = transform.position;
             playerpos.y -= 1.225f;
         }
 
-        OutofBounds();
+        OutofBounds(); // keeps the player on the screen
         transform.position = playerpos;
     }
 
