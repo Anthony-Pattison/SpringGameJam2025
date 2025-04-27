@@ -16,10 +16,13 @@ public class TrashManager : MonoBehaviour
     public List<List<GameObject>> ListofColumns = new List<List<GameObject>>();
     public float speed;
     bool move = true;
+    public float spawnRate;
+    private float globalT;
+    public int score;
     // Start is called before the first frame update
     void Start()
     {
-
+        globalT = 0;
 
       
 
@@ -29,13 +32,9 @@ public class TrashManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            
-            //ListofColumns[1][2] = TrashPrefab;
-          
-        }
+
+        globalT += Time.deltaTime;
+
 
     }
     

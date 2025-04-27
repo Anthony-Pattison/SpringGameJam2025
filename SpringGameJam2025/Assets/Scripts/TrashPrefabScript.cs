@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class TrashPrefabScript : MonoBehaviour
 {
+    public List<Sprite> spriteList = new List<Sprite>();
     public float speed;
     public float xpos;
-    public bool isItem = false;
-    public bool killitem;
+    public bool isItem;
     Vector2 TrashPos;
     public float stopPos;
     public bool move = true;
+    public SpriteRenderer sr;
+    public Coroutine movingCR;
     // Start is called before the first frame update
     void Start()
     {
+        sr = gameObject.GetComponent<SpriteRenderer>();
+        sr.sprite = spriteList[(int)Random.Range(0, spriteList.Count)];
         TrashPos.y = 4.335f; // starts at the top of the screen
         transform.position = TrashPos; // gives movement
+        gameObject.transform.Rotate(0.0f, 0.0f, Random.Range(-90, 90), Space.Self);
     }
 
     // Update is called once per frame
@@ -27,14 +32,15 @@ public class TrashPrefabScript : MonoBehaviour
         {
             move = false;
 
-        }else if (temppos.y <= stopPos && isItem)
-        {
-            killitem = true;
         }
         else
         {
-            StartCoroutine(movement()); // runs movement
+            if (movingCR == null){
+                movingCR = StartCoroutine(movement()); // runs movement
+            }
         }
+
+        
     }
 
     IEnumerator movement()
@@ -47,4 +53,6 @@ public class TrashPrefabScript : MonoBehaviour
             yield return null;
         }
     }
+
+
 }
